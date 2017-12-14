@@ -34,6 +34,9 @@ public class CategorieResource {
     @Inject
     CategorieManager cm;
     
+    @Inject
+    SandwichManager sm;
+    
     @GET
     public Response getCategories() {
 //        JsonObject json = Json.createObjectBuilder()
@@ -50,6 +53,16 @@ public class CategorieResource {
     @Path("{id}")
     public Response getOneCategorie(@PathParam("id") long id, @Context UriInfo uriInfo) {
         return Optional.ofNullable(cm.findById(id))
+                //.map(c -> Response.ok(categorie2Json(c)).build())
+                .map(c -> Response.ok(c).build())
+                //.orElseThrow(() -> new CategorieNotFound("Ressource non disponible "+ uriInfo.getPath()));
+                .orElse(Response.status(Response.Status.NOT_FOUND).build());
+    }
+    
+    @GET
+    @Path("{id}/sandwichs")
+    public Response getSandwichs(@PathParam("id") long id, @Context UriInfo uriInfo) {
+        return Optional.ofNullable(sm.findById(id))
                 //.map(c -> Response.ok(categorie2Json(c)).build())
                 .map(c -> Response.ok(c).build())
                 //.orElseThrow(() -> new CategorieNotFound("Ressource non disponible "+ uriInfo.getPath()));
