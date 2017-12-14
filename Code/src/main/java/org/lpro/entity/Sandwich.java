@@ -5,9 +5,12 @@
  */
 package org.lpro.entity;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
@@ -31,6 +34,14 @@ public class Sandwich {
     @NotNull
     private String type_pain;
     private String img;
+    
+    @ManyToMany
+    private Set<Links> tag = new HashSet<Links>();
+
+    
+    public Sandwich() {
+        
+    }
 
     public long getId() {
         return id;
