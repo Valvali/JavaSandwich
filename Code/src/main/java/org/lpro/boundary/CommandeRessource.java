@@ -1,4 +1,4 @@
-package org.boundary;
+package org.lpro.boundary;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import org.control.RandomToken;
-import org.entity.Commande;
+import org.lpro.entity.Commande;
 
 @Stateless
 @Transactional

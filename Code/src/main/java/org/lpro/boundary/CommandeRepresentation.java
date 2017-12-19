@@ -1,4 +1,4 @@
-package org.boundary;
+package org.lpro.boundary;
 
 import java.net.URI;
 import javax.ejb.Stateless;
@@ -20,7 +20,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import org.entity.Commande;
+import org.lpro.entity.Commande;
 
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
