@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
  * @author vali
  */
 @Entity
-@NamedQuery(name="Sandwich.findAll",query="SELECT c FROM Categorie c")
+@NamedQuery(name="Sandwich.findAll",query="SELECT s FROM Sandwich s")
 public class Sandwich {
     
     
