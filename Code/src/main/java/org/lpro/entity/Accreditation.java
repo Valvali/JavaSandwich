@@ -1,4 +1,4 @@
-package entity;
+package org.lpro.entity;
 
 public class Accreditation {
     private String username;
