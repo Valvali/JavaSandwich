@@ -21,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import org.lpro.entity.Commande;
+import provider.Secured;
 
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
@@ -33,6 +34,7 @@ public class CommandeRepresentation {
     @Context
     UriInfo uriInfo;
 
+    @Secured
     @GET
     @Path("/{commandeId}")
     public Response getOneCommande(@PathParam("commandId") String commandeID,
@@ -59,6 +61,7 @@ public class CommandeRepresentation {
         }
     }
 
+    @Secured
     @POST
     public Response addCommande(@Valid Commande commande) {
         Commande newCommande = this.commandeRessource.save(commande);
