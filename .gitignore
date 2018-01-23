@@ -1,2 +1,4 @@
 ./Code/target/
-.class
+Code/target/classes/.netbeans_automatic_build
+Code/target/test-classes/
+*.class
