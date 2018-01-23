@@ -2,7 +2,7 @@ package org.lpro.boundary;
 
 import org.control.KeyManagement;
 import org.control.PasswordManagement;
-import entity.Accreditation;
+import org.lpro.entity.Accreditation;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.security.Key;
