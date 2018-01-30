@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -59,6 +60,12 @@ public Response getSandwichs(@QueryParam("type") String ptype) {
                 .orElse(Response.status(Response.Status.NOT_FOUND).build());
     }
     
+    @DELETE
+    @Path("{id}")
+    public Response suppression(@PathParam("id") long id) {
+        this.sm.delete(id);
+        return Response.status(Response.Status.NO_CONTENT).build();
+    }
     
     
 
