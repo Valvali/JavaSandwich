@@ -1,4 +1,4 @@
-package boundary;
+package org.lpro.boundary;
 
 import provider.Secured;
 import javax.json.Json;
