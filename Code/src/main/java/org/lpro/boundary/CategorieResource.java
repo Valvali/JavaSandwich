@@ -1,5 +1,8 @@
 package org.lpro.boundary;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -70,6 +73,10 @@ public class CategorieResource {
     }
     
     @POST
+    @ApiOperation(value = "Crée une catégorie", notes = "Crée une catégorie à partir du JSON fourni")
+    @ApiResponses(value = {
+        @ApiResponse(code = 201, message = "Created"),
+        @ApiResponse(code = 500, message = "Internal server error")})
     public Response newCategorie(@Valid Categorie c, @Context UriInfo uriInfo) {
         Categorie newOne = this.cm.save(c);
         long id = newOne.getId();
@@ -79,6 +86,10 @@ public class CategorieResource {
             
     @DELETE
     @Path("{id}")
+    @ApiOperation(value = "Supprime une catégorie", notes = "Supprime la catégorie dont l'ID est fourni")
+    @ApiResponses(value = {
+        @ApiResponse(code = 204, message = "No content"),
+        @ApiResponse(code = 500, message = "Internal server error")})
     public Response suppression(@PathParam("id") long id) {
         this.cm.delete(id);
         return Response.status(Response.Status.NO_CONTENT).build();
